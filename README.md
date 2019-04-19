@@ -1,4 +1,4 @@
-# Invest Manager SMART CONTRACTS
+# INVEST MANAGER SMART CONTRACTS
 ### Development Scripts
 
 ```bash
