@@ -25,8 +25,8 @@ yarn dist:dir
 ```
 Uncaught Error: More than one instance of bitcore-lib found. Please make sure to require bitcore-lib and check that submodules do not also include their own bitcore-lib dependency.
 ```
-#### node_modules\bitcore-lib\index.js
-#### node_modules\bitcore-mnemonic\node_modules\bitcore-lib\index.js
+#### 1- node_modules\bitcore-lib\index.js
+#### 2- node_modules\bitcore-mnemonic\node_modules\bitcore-lib\index.js
 
 Before
 ```
