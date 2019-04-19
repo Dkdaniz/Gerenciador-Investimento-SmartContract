@@ -60,7 +60,7 @@ function Controller(ContractService, $stateParams, ContractRepository, $scope) {
   function validate() {
     if(!vm.contract.address) throw "O campo <b>Endereço do contrato</b> é obrigatório";
     if(!vm.contract.password) throw "O campo <b>Password</b> é obrigatório";
-    if(!vm.contract.leaxQuotation) throw "O campo <b>Cotação Leax</b> é obrigatório";
+    if(!vm.contract.ERC20coinQuotation) throw "O campo <b>Cotação ERC20coin</b> é obrigatório";
     if(!vm.contract.customerWallet) throw "O campo <b>Wallet do Cliente</b> é obrigatório";
   }
 }

@@ -318,7 +318,7 @@ function ContractService($q, ContractRepository) {
     }
 
     async function getStatus(contract){
-
+        
         if(contract.status != "pending"){
             await ContractRepository.update(contract.id,{
                 status: 'pending' 
@@ -327,13 +327,24 @@ function ContractService($q, ContractRepository) {
         
         web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/6618ab2040d34e518e841cafc53c4a44"));   
         let address = web3.toChecksumAddress(contract.address).toString(); 
+        console.log(address);
         
         let interfaceexempleCli = web3.eth.contract(exempleCliABI).at(address);
         let contractData = interfaceexempleCli.contractActive.getData();
         let contractStatus = await web3Call(address, contractData);
+       
         contractStatus = web3.toBigNumber(contractStatus);
+        console.log(contractStatus);
         while(contractStatus == "1"){
             await sleep(30000);
+            console.log('sleep 30000');
+            await ContractRepository.update(contract.id,{
+            customer: contract.customer,
+            transaction: contract.hash,
+            number: contract.numContract,
+            address: contractAddress,
+            status: status 
+        });
             contractStatus = await web3Call(address, contractData);
             contractStatus = web3.toBigNumber(contractStatus);
         }

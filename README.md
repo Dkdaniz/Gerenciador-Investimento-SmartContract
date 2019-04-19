@@ -1,4 +1,14 @@
 #Invest Manager SMART CONTRACTS
+
+## System Example
+
+![Alt Text](/markdown/plataform.gif)
+
+![Alt Text](/markdown/home.png)
+
+![Alt Text](/markdown/etherscan.png)
+
+
 ### Development Scripts
 
 ```bash

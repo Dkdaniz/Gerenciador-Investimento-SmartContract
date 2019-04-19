@@ -22,7 +22,6 @@ function Controller(ContractRepository) {
     ContractRepository.all()
       .then(contracts => {
         vm.contracts = contracts;
-        console.log(contracts);
         vm.processing = false;
       })
       .catch(err => {
@@ -30,6 +29,7 @@ function Controller(ContractRepository) {
         console.error(err);
         vm.processing = false;
       })
+      
   }
 
   function openOptions(contract) {
