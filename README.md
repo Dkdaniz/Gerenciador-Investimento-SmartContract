@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #Invest Manager SMART CONTRACTS
 
 ## System Example
@@ -10,9 +9,8 @@
 ![Alt Text](/markdown/etherscan.png)
 
 
-=======
 # INVEST MANAGER SMART CONTRACTS
->>>>>>> 7dd0be9bd2a4619f7e6a6d62a0ef805c680c3541
+
 ### Development Scripts
 
 ```bash
