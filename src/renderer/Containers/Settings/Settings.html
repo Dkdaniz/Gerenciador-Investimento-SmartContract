@@ -1,0 +1,43 @@
+<loading show="vm.processing"></loading>
+
+<div class="content">
+
+    <page-title page="Configurações"></page-title>
+    
+    <div class="notification is-danger" ng-if="vm.error">
+        <button class="delete" ng-click="vm.error = null"></button>
+        <span ng-bind-html="vm.error"></span>
+    </div>
+    
+    <div class="notification is-success" ng-if="vm.success">
+        <button class="delete" ng-click="vm.success = null"></button>
+        <span ng-bind-html="vm.success"></span>
+    </div>
+    
+    <div class="form-content">
+    
+        <div class="columns">
+            <div class="column">
+                <label class="label">Caminho para o arquivo de banco de dados</label>
+                <div class="field">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" ng-model="vm.settings.databasePath">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class="field is-grouped-centered">
+        <p class="control">
+            <a class="button is-success is-medium is-rounded" ng-click="vm.save()" ng-class="{'is-loading': vm.processing}">
+                <span class="icon">
+                    <i class="fas fa-check"></i>
+                </span>
+                <span>Salvar</span>
+            </a>
+        </p>
+    </div>
+
+</div>

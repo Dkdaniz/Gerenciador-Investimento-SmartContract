@@ -1,0 +1,75 @@
+<loading show="vm.processing"></loading>
+
+<div class="content">
+
+    <page-title page="Contratos"></page-title>
+
+    <div class="columns">
+        <div class="column is-two-fifths">
+            <div class="control">
+                <input class="input" type="text" placeholder="Buscar" ng-model="vm.filter">
+            </div>
+        </div>
+        <div class="column">
+            <a ui-sref="root.newContract" class="button is-success">
+                <span class="icon is-small">
+                    <i class="fas fa-plus-circle"></i>
+                </span>
+                <span>Novo Contrato</span>
+            </a>
+            <a ng-click="vm.getData()" class="button" ng-class="{'is-loading': vm.processing}">
+                <span class="icon is-small">
+                    <i class="fas fa-sync-alt"></i>
+                </span>
+                <span>Atualizar</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="notification is-danger" ng-if="vm.error">
+        <button class="delete" ng-click="vm.error = null"></button>
+        <span ng-bind-html="vm.error"></span>
+    </div>
+
+    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <thead>
+            <tr>
+                <th width="1%">ID</th>
+                <th>Cliente</th>
+                <th>Nº do contrato</th>
+                <th>Endereco contrato</th>
+                <th>Transaction hash</th>
+                <th>Status</th>
+                <th width="1%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contract in filteredContracts = (vm.contracts | filter:vm.filter)">
+                <td>{{ contract.id }}</td>
+                <td>{{ contract.customer }}</td>
+                <td>{{ contract.number }}</td>
+                <td>{{ contract.address }}</td>
+                <td>
+                    <a title="copiar" ng-click="vm.copy(contract.transaction)"><u>{{ contract.transaction | limitTo: 15 }}...</u></a>
+                </td>
+
+                <td>
+                    <span ng-if="contract.status == 'pending'" class="tag is-warning">Pendente</span>
+                    <span ng-if="contract.status == 'concluded'" class="tag is-success">Concluído</span>
+                    <span ng-if="contract.status == 'closed'" class="tag is-dark">Encerrado</span>
+                </td>
+                <td width="1%">
+                    <dropdown ng-if="contract.status == 'concluded'" text="Opções">
+                        <a ui-sref="root.payContract({id: contract.id})" class="dropdown-item">Pagar</a>
+                        <a ui-sref="root.creditContract({id: contract.id})" class="dropdown-item">Creditar</a>
+                        <a ui-sref="root.closeContract({id: contract.id})" class="dropdown-item">Encerrar</a>
+                    </dropdown>
+                </td>
+            </tr>
+            <tr ng-if="filteredContracts.length == 0">
+                <td colspan="7">Nenhum contrato encontrado</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

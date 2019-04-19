@@ -1,0 +1,14 @@
+// custom variables
+$primary: rgb(216, 96, 16);
+$link: hsl(0, 0%, 21%);
+
+@import "bulma";
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts/";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+.form-content {
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #f7f7f7;
+}

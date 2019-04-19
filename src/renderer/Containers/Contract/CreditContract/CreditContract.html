@@ -1,0 +1,65 @@
+<loading show="vm.processing"></loading>
+
+<div class="content">
+    
+    <page-title page="Creditar contrato"></page-title>
+    
+    <div class="notification is-danger" ng-if="vm.error">
+        <button class="delete" ng-click="vm.error = null"></button>
+        <span ng-bind-html="vm.error"></span>
+    </div>
+    
+    <div class="notification is-success" ng-if="vm.success">
+        <button class="delete" ng-click="vm.success = null"></button>
+        <span ng-bind-html="vm.success"></span>
+    </div>
+    
+    <div class="form-content">
+    
+        <div class="columns">
+            <div class="column">
+                <label class="label">Endereço do Contrato</label>
+                <div class="field">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" readonly="true" disabled  ng-model="vm.contract.address">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column">
+                <label class="label">Valor do pagamento</label>
+                <div class="field">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" placeholder="10.000,00" ui-number-mask ng-model="vm.contract.paymentAmount">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="columns">
+            <div class="column">
+                <label class="label">Password</label>
+                <div class="field">
+                    <div class="control is-expanded">
+                        <input class="input" type="password" minlength="8" ng-model="vm.contract.password">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class="field is-grouped-centered">
+        <p class="control">
+            <a class="button is-success is-medium is-rounded" ng-click="vm.credit()" ng-class="{'is-loading': vm.processing}">
+                <span class="icon">
+                    <i class="fas fa-check"></i>
+                </span>
+                <span>Creditar</span>
+            </a>
+        </p>
+    </div>
+
+</div>

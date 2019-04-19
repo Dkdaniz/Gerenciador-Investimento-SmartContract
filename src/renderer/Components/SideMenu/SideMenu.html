@@ -1,0 +1,8 @@
+<aside class="menu">
+    <p class="menu-label" ng-repeat-start="item in vm.items">
+        {{ item.label }}
+    </p>
+    <ul class="menu-list" ng-repeat-end ng-repeat="subitem in item.items">
+        <li><a ui-sref="{{ subitem.sref }}" ui-sref-active='is-active'>{{ subitem.label }}</a></li>
+    </ul>
+</aside>

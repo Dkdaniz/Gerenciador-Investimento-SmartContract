@@ -1,0 +1,44 @@
+{
+  "name": "exemplecoin",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
+    "postinstall": "install-app-deps"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.20",
+    "angular": "^1.7.5",
+    "angular-animate": "^1.7.5",
+    "angular-i18n": "^1.7.5",
+    "angular-input-masks": "^4.2.1",
+    "angular-sanitize": "^1.7.5",
+    "bignumber.js": "2.0.7",
+    "bitcore-lib": "^0.15.0",
+    "bitcore-mnemonic": "^1.5.0",
+    "buffer": "^5.2.1",
+    "bulma": "^0.7.2",
+    "crypto-js": "^3.1.5",
+    "eth-lightwallet": "^3.0.1",
+    "googleapis": "^27.0.0",
+    "hooked-web3-provider": "^1.0.0",
+    "ipfs-api": "^26.1.2",
+    "js-sha256": "^0.9.0",
+    "sequelize": "^>=5.0.0",
+    "source-map-support": "^0.5.9",
+    "sqlite3": "^4.0.4",
+    "web3": "0.20.2"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.5.0",
+    "electron": "3.0.10",
+    "electron-builder": "^20.36.2",
+    "electron-webpack": "^2.6.1",
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.26.0"
+  }
+}

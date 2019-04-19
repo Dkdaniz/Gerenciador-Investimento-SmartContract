@@ -1,0 +1,21 @@
+<top-bar></top-bar>
+
+<section class="section">
+    <div id="Root" class="container">
+        <div class="columns">
+            <div class="column is-one-quarter">
+                <side-menu items="vm.menu"></side-menu>
+            </div>
+            <div class="column">
+
+                <div class="notification is-danger" ng-if="vm.errors.length">
+                    <p ng-repeat="error in vm.errors">
+                        <span ng-bind-html='error'></span>
+                    </p>
+                </div>
+
+                <ui-view />
+            </div>
+        </div>
+    </div>
+</section>
