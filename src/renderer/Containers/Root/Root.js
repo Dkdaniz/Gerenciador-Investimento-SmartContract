@@ -38,7 +38,7 @@ function Controller(ContractRepository, ContractService, Settings) {
             .then(result => console.log(result))
             .catch(err => console.log(err));
           }
-
+          
           if(contractPending.address != null){
             ContractService.getStatus(contractPending)
             .then(result => console.log(result))

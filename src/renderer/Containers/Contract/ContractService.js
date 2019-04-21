@@ -288,7 +288,6 @@ function ContractService($q, ContractRepository) {
         while(contractAddress == "0x"){
             await sleep(30000);
             contractAddress = await web3Call(exemplecoinContract, contractData);
-            console.log(contractAddress)
         }
 
         contractAddress = web3.toChecksumAddress("0x" + contractAddress.substring(26));
@@ -318,7 +317,6 @@ function ContractService($q, ContractRepository) {
     }
 
     async function getStatus(contract){
-        
         if(contract.status != "pending"){
             await ContractRepository.update(contract.id,{
                 status: 'pending' 
@@ -326,29 +324,18 @@ function ContractService($q, ContractRepository) {
         }
         
         web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/6618ab2040d34e518e841cafc53c4a44"));   
-        let address = web3.toChecksumAddress(contract.address).toString(); 
-        console.log(address);
-        
+        let address = web3.toChecksumAddress(contract.address).toString();
         let interfaceexempleCli = web3.eth.contract(exempleCliABI).at(address);
         let contractData = interfaceexempleCli.contractActive.getData();
         let contractStatus = await web3Call(address, contractData);
-       
         contractStatus = web3.toBigNumber(contractStatus);
-        console.log(contractStatus);
-        while(contractStatus == "1"){
+        console.log(contractStatus.toString());
+        while(contractStatus.toString() == "1"){
             await sleep(30000);
-            console.log('sleep 30000');
-            await ContractRepository.update(contract.id,{
-            customer: contract.customer,
-            transaction: contract.hash,
-            number: contract.numContract,
-            address: contractAddress,
-            status: status 
-        });
-            contractStatus = await web3Call(address, contractData);
-            contractStatus = web3.toBigNumber(contractStatus);
+            console.log("Passou status");
+            contractStatus = web3.toBigNumber(await web3Call(address, contractData));
         }
-
+        console.log("Passou codigo");
         await ContractRepository.update(contract.id,{
             status: 'closed' 
         });
