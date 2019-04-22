@@ -59,7 +59,7 @@ After
 // module information
 bitcore.version = 'v' + require('./package.json').version;
 bitcore.versionGuard = function(version) {
-return;
+<span style="color:red"> return; text*</span>
   if (version !== undefined) {
     var message = 'More than one instance of bitcore-lib found. ' +
       'Please make sure to require bitcore-lib and check that submodules do' +
