@@ -23,7 +23,7 @@
     "bulma": "^0.7.2",
     "crypto-js": "^3.1.5",
     "eth-lightwallet": "^3.0.1",
-    "googleapis": "^27.0.0",
+    "googleapis": "^59.0.0",
     "hooked-web3-provider": "^1.0.0",
     "ipfs-api": "^26.1.2",
     "js-sha256": "^0.9.0",
